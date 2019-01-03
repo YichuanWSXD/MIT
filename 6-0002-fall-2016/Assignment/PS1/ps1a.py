@@ -24,8 +24,14 @@ def load_cows(filename):
     Returns:
     a dictionary of cow name (string), weight (int) pairs
     """
-    # TODO: Your code here
-    pass
+    file = open('ps1_cow_data.txt','r')
+    lines = file.readlines()
+    ret = dict()
+    iteration = map(lambda x: x[0].split(','),map(lambda x: x.split('\n'),lines))
+    for [name,num] in iteration:
+         ret[name]=int(num)
+    file.close()
+    return ret
 
 # Problem 2
 def greedy_cow_transport(cows,limit=10):
